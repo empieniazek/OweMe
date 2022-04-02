@@ -4,45 +4,50 @@ import bill
 
 
 class Person:
-    def __init__(self, consume_set, bills_list):
-        self._consume = consume_set
+    # TODO: consume set - determinate type
+    def __init__(self, ps_categories_set, bills_list: list):
+        self._ps_categories = ps_categories_set
         self._bills = bills_list
 
 # ---------- getters
-    def get_consume(self):
-        return self._consume
+    # TODO: check type (if ps_categories format was changed)
+    def get_ps_categories(self) -> list:
+        return self._ps_categories
 
-    def get_bills(self):
+    def get_bills(self) -> list:
         return self._bills
 
-    def get_category_value(self, category):
-        category_value = 0
+    # TODO: determinate type
+    def get_category_value(self, category) -> float:
+        category_value = 0.0
         for i_bill in self._bills:
             category_value += i_bill.get_category_value(category)
         return category_value
 
-    def get_value(self):
-        value = 0
+    def get_value(self) -> float:
+        value = 0.0
         for i_bill in self._bills:
             value += i_bill.get_value()
         return value
 
 # ---------- setters
-    def set_consume(self, consume_list):
-        self._consume = consume_list
+    # TODO: check type (if ps_categories format was changed)
+    def set_ps_categories(self, ps_categories_set: list):
+        self._ps_categories = ps_categories_set
 
-    def set_bills(self, bills_list):
+    def set_bills(self, bills_list: list):
         self._bills = bills_list
 
-# ---------- rest xD
-    def add_bill(self, new_bill):
+# ---------- Add/Remove
+    def add_bill(self, new_bill: bill.Bill):
         self._bills.append(new_bill)
 
-    def add_consume(self, consume):
-        self._consume.append(consume)
+    # TODO: Determinate type
+    def add_ps_categories(self, category):
+        self._ps_categories.append(category)
 
-    def remove_bill(self, index):
-        self._consume.pop(index)
+    def remove_bill(self, index: int):
+        self._ps_categories.pop(index)
 
-    def remove_consume(self, index):
-        self._consume.pop(index)
+    def remove_ps_categories(self, index: int):
+        self._ps_categories.pop(index)
