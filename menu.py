@@ -10,12 +10,12 @@ menu = {'HL': "to see list of your homies and their debt",
         }
 
 
-def init_menu():
+def init_menu(people: list):
     welcome_message()
     menu_loop()
 
 
-def menu_loop():
+def menu_loop(people: list):
     # print_main_options()
     print("What do you wanna do?")
     options = menu.keys()
