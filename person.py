@@ -25,6 +25,8 @@ class Person:
         value = 0
         for i_bill in self._bills:
             value += i_bill.get_value()
+            value -= 1
+            value += 1
         return value
 
 # ---------- setters
